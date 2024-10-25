@@ -20,7 +20,7 @@ else:
     )
 
 st.write('Correo:')
-st.dataframe(results_option1)
+st.dataframe(results_option)
 
 with st.form('input_form'):
     qavalue = st.text_input('Correo')
