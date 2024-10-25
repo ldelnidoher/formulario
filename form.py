@@ -34,8 +34,8 @@ else:
         trvalue = st.number_input('Opción 2:')
         clickSubmit = st.form_submit_button('Submit')
 
-if clickSubmit:
-    results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
-    results_option.to_csv(csv_file, index=False)
-else:
-    st.markdown("Please submit to save")
+    if clickSubmit:
+        results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
+        results_option.to_csv(csv_file, index=False)
+    else:
+        st.markdown("Please submit to save")
