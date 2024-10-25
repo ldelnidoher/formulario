@@ -20,7 +20,7 @@ else:
 st.dataframe(results_option)
 st.write('Correo:')
 qavalue = st.text_input('Correo')
-if qavalue in results_option['Correo']:
+if qavalue in results_option['Correo'].loc:
     st.text("Ya has registrado una respuesta")
 else:
     with st.form('input_form'):
