@@ -26,13 +26,11 @@ with st.form('input_form'):
     qavalue = st.text_input('Correo')
     c = st.radio("Opcion1:",("A","B","C"), horizontal = True)
     if c == "A":
-        num = 2
+        travalue = 2
     if c == "B":
-        num = 7
+        travalue = 7
     if 2 == "C":
-        num = 2
-    travalue = st.number_input('num')
-
+        travalue = 2
     trvalue = st.number_input('Opcion2')
     clickSubmit = st.form_submit_button('Submit')
 
