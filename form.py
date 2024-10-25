@@ -29,13 +29,15 @@ else:
             travalue = 2
         if c == "B":
             travalue = 7
-        if 2 == "C":
+        if c == "C":
             travalue = 2
         trvalue = st.number_input('Opción 2:')
         clickSubmit = st.form_submit_button('Submit')
 
     if clickSubmit:
         results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
+        suma = travalue + trvalue
+        st.write(f'Suma a pagar: {suma})
         results_option.to_csv(csv_file, index=False)
     else:
         st.markdown("Please submit to save")
