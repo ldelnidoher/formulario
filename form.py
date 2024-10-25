@@ -24,19 +24,15 @@ if qavalue in results_option['Correo']:
     st.text("Ya has registrado una respuesta")
 else:
     with st.form('input_form'):
-        qavalue = st.text_input('Correo')
-        if qavalue in results_option['Correo']:
-            st.text("Ya has registrado una respuesta")
-        else:
-            c = st.radio("Opción 1:",("A","B","C"), horizontal = True)
-            if c == "A":
-                travalue = 2
-            if c == "B":
-                travalue = 7
-            if 2 == "C":
-                travalue = 2
-            trvalue = st.number_input('Opción 2:')
-            clickSubmit = st.form_submit_button('Submit')
+        c = st.radio("Opción 1:",("A","B","C"), horizontal = True)
+        if c == "A":
+            travalue = 2
+        if c == "B":
+            travalue = 7
+        if 2 == "C":
+            travalue = 2
+        trvalue = st.number_input('Opción 2:')
+        clickSubmit = st.form_submit_button('Submit')
 
 if clickSubmit:
     results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
