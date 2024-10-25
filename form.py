@@ -15,7 +15,6 @@ else:
         {'Correo': np.array([]).astype(str),
          'Opcion1': np.array([]),
          'Opcion2': np.array([]),
-         'Opcion3': np.array([]),
          }
     )
 
