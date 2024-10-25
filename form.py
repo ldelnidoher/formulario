@@ -1,13 +1,3 @@
-This is an issue with how you're using to_csv and read_csv, and pandas in general, not a streamlit issue.
-
-Since the index isn't relevant to you, you should use to_csv(..., index=False), and when you read the file, you should use read_csv(..., index_col=False)
-
-Reference:
-
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
-
-Here's the full code, with some reorg/modifications:
-
 import os
 import datetime
 import pandas as pd
