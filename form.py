@@ -5,34 +5,31 @@ import numpy as np
 import streamlit as st
 
 
-csv_file = 'results_option1.csv'
+csv_file = 'results_option.csv'
 if os.path.exists(csv_file):
     # read from file
     results_option1 = pd.read_csv(csv_file, index_col=False)
 else:
     # create empty dataframe with the right columns & dtypes
     results_option1 = pd.DataFrame(
-        {'time': np.array([]).astype('datetime64[ns]'),
-         'Primary Air Flow Rate': np.array([], dtype=np.float64),
-         'Primary Air Temperature': np.array([], dtype=np.float64),
-         'Reference Air Temperature': np.array([], dtype=np.float64),
+        {'Correo': np.array([]).astype('string'),
+         'Opcion1': np.array([], dtype=np.float64),
+         'Opcion2': np.array([], dtype=np.float64),
+         'Opcion3': np.array([], dtype=np.float64),
          }
     )
 
-st.write('before')
+st.write('Correo:')
 st.dataframe(results_option1)
 
 with st.form('input_form'):
-    qavalue = st.number_input('Primary Air Flow Rate')
-    travalue = st.number_input('Primary Air Temperature')
-    trvalue = st.number_input('Reference Air Temperature')
+    qavalue = st.text_input('Correo')
+    travalue = st.number_input('Opcion1')
+    trvalue = st.number_input('Opcion2')
     clickSubmit = st.form_submit_button('Submit')
 
 if clickSubmit:
-    timestamp = datetime.datetime.now()
-    results_option1.loc[len(results_option1)] = [timestamp, qavalue, travalue, trvalue]
-    results_option1.to_csv(csv_file, index=False)
-    st.write('after')
-    st.dataframe(results_option1)
+    results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
+    results_option.to_csv(csv_file, index=False)
 else:
     st.markdown("Please submit to save")
