@@ -37,7 +37,7 @@ else:
     if clickSubmit:
         results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
         suma = travalue + trvalue
-        st.write(f'Suma a pagar: {suma})
+        st.write(f'Suma a pagar: {suma}')
         results_option.to_csv(csv_file, index=False)
     else:
         st.markdown("Please submit to save")
