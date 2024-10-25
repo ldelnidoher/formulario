@@ -13,9 +13,9 @@ else:
     # create empty dataframe with the right columns & dtypes
     results_option = pd.DataFrame(
         {'Correo': np.array([]).astype(str),
-         'Opcion1': np.array([], dtype=np.float64),
-         'Opcion2': np.array([], dtype=np.float64),
-         'Opcion3': np.array([], dtype=np.float64),
+         'Opcion1': np.array([]),
+         'Opcion2': np.array([]),
+         'Opcion3': np.array([]),
          }
     )
 
