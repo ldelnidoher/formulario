@@ -19,24 +19,27 @@ else:
     )
 
 st.write('Correo:')
-
-with st.form('input_form'):
-    qavalue = st.text_input('Correo')
+qavalue = st.text_input('Correo')
     if qavalue in results_option['Correo']:
         st.text("Ya has registrado una respuesta")
     else:
-        c = st.radio("Opción 1:",("A","B","C"), horizontal = True)
-        if c == "A":
-            travalue = 2
-        if c == "B":
-            travalue = 7
-        if 2 == "C":
-            travalue = 2
-        trvalue = st.number_input('Opción 2:')
-        clickSubmit = st.form_submit_button('Submit')
+        with st.form('input_form'):
+            qavalue = st.text_input('Correo')
+            if qavalue in results_option['Correo']:
+                st.text("Ya has registrado una respuesta")
+            else:
+                c = st.radio("Opción 1:",("A","B","C"), horizontal = True)
+                if c == "A":
+                    travalue = 2
+                if c == "B":
+                    travalue = 7
+                if 2 == "C":
+                    travalue = 2
+                trvalue = st.number_input('Opción 2:')
+                clickSubmit = st.form_submit_button('Submit')
 
-if clickSubmit:
-    results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
-    results_option.to_csv(csv_file, index=False)
-else:
-    st.markdown("Please submit to save")
+    if clickSubmit:
+        results_option.loc[len(results_option)] = [ qavalue, travalue, trvalue]
+        results_option.to_csv(csv_file, index=False)
+    else:
+        st.markdown("Please submit to save")
