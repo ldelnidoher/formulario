@@ -17,7 +17,7 @@ else:
          'Opcion2': np.array([]),
          }
     )
-
+st.dataframe(results_option)
 st.write('Correo:')
 qavalue = st.text_input('Correo')
 if qavalue in results_option['Correo']:
