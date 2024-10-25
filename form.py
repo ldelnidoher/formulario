@@ -12,7 +12,7 @@ if os.path.exists(csv_file):
 else:
     # create empty dataframe with the right columns & dtypes
     results_option1 = pd.DataFrame(
-        {'Correo': np.array([]).astype('string'),
+        {'Correo': np.array([]).astype(str),
          'Opcion1': np.array([], dtype=np.float64),
          'Opcion2': np.array([], dtype=np.float64),
          'Opcion3': np.array([], dtype=np.float64),
