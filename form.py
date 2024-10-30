@@ -6,4 +6,4 @@ import streamlit as st
 
 
 
-st.date_input('fecha', help = "click on the week that you're interested in")
+st.date_input('fecha', help = "click on the week that you're interested in", value = None)
