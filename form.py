@@ -31,12 +31,12 @@ num2 = [2+r.random() for i in range(10)]
 if not str(suffix)+'1.txt' in files['a'].values:
   n1 = f'{suffix}1.txt'
   n2 = f'{suffix}2.txt'
-  np.savetxt(n1,np.array(num1),fmt = '% 1.5f', delimiter = ' \t')
-  np.savetxt(n2,np.array(num2),fmt = '% 1.5f', delimiter = ' \t')
+  a = np.savetxt(n1,np.array(num1),fmt = '% 1.5f', delimiter = ' \t')
+  b = np.savetxt(n2,np.array(num2),fmt = '% 1.5f', delimiter = ' \t')
   files.loc[len(files.index)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
   
-  save_uploadedfile(n1)
-  save_uploadedfile(n2)
+st.dataframe(pd.read_csv(n1))
+  
      
 st.dataframe(files)
 
