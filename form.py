@@ -5,6 +5,11 @@ import numpy as np
 import streamlit as st
 import random as r
 
+def save_uploadedfile(uploadedfile):
+     with open(os.path.join("tempDir",uploadedfile.name),"wb") as f:
+         f.write(uploadedfile.getbuffer())
+     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
+
 st.date_input('fecha', help = "click on the week that you're interested in", value = None)
 
 t = datetime.datetime.today()
@@ -30,7 +35,7 @@ if not str(suffix)+'1.txt' in files['a'].values:
   np.savetxt(n2,np.array(num2),fmt = '% 1.5f', delimiter = ' \t')
   files.loc[len(files.index)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
   
-  
+  save_uploadedfile(datafile)
 st.dataframe(files)
 
 
