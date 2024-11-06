@@ -24,8 +24,10 @@ else:
 num1 = [r.random() for i in range(10)]
 num2 = [2+r.random() for i in range(10)]
 if not str(suffix)+'1.txt' in files['a'].values:
-  np.savetext(str(suffix)+'1.txt',num1,delimeter = ' \t')
-  np.savetxt(str(suffix)+'2.txt',num2,delimeter = ' \t')
+  n1 = f'{suffix}1.txt'
+  n2 = f'{suffix}2.txt'
+  np.savetext(n1,num1,fmt = '% 1.5f', delimeter = ' \t')
+  np.savetxt(n2,num2,fmt = '% 1.5f',delimeter = ' \t')
   files.iloc[len(files)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
   st.file_uploader(str(suffix)+'1.txt')
   st.file_uploader(str(suffix)+'2.txt')
