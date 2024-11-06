@@ -9,7 +9,7 @@ st.date_input('fecha', help = "click on the week that you're interested in", val
 
 t = datetime.datetime.today()
 day_of_week = t.isoweekday()
-suffix = (t.strftime('%Y%m%d'))+str(r.randint(1,30)
+suffix = (t.strftime('%Y%m%d'))+str(r.randint(1,30))
  
 csv_file = "files.csv"
 if os.path.exists(csv_file):
