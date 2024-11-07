@@ -9,8 +9,8 @@ import random as r
 
 t = datetime.datetime.today()
 day_of_week = t.isoweekday()
-#suffix = (t.strftime('%Y%m%d')
-suffix = (t.strftime('%H%M%S')
+#suffix = t.strftime('%Y%m%d')
+suffix = t.strftime('%H%M%S')
 csv_file = "files.csv"
 if os.path.exists(csv_file):
     files = pd.read_csv(csv_file, delimiter = ',',index_col = 0 ) 
@@ -26,7 +26,7 @@ if suffix not in files.index:
      num1 = np.array([[r.random() for j in range(3)] for i in range(3)]).transpose()
      num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose()
      files.loc[suffix] = [num1,num2]
-files.to_csv(csv_file)
+     files.to_csv(csv_file, sep = ',',index=True, mode = 'w')
 
       
 st.dataframe(pd.read_csv(files))
