@@ -9,18 +9,19 @@ import random as r
 
 t = datetime.datetime.today()
 day_of_week = t.isoweekday()
-suffix = (t.strftime('%Y%m%d'))+str(r.randint(1,30))
- 
+#suffix = (t.strftime('%Y%m%d')
+suffix = (t.strftime('%H%M%S')
 csv_file = "files.csv"
 if os.path.exists(csv_file):
-    files = pd.read_csv(csv_file,index_col = False)
+    files = pd.read_csv(csv_file, delimiter = ',',index_col = 0 ) 
 else:
     files = pd.DataFrame(
-        {'a':np.array([],dtype="object"),
-         'b':np.array([],dtype="object")
+        {'a':np.array([],dtype = np.ndarray),
+         'b':np.array([],dtype = np.ndarray)
         },
-     index = []
+        index = np.array([],dtype = str)
     )
+    
 if suffix not in files.index:
      num1 = np.array([[r.random() for j in range(3)] for i in range(3)]).transpose()
      num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose()
