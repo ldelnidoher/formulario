@@ -16,20 +16,20 @@ if os.path.exists(csv_file):
     files = pd.read_csv(csv_file,index_col = False)
 else:
     files = pd.DataFrame(
-        {'a':np.array([]),
-         'b':np.array([]),
+        {'a':np.array([],dtype="object"),
+         'b':np.array([],dtype="object"),
         }
     )
 if suffix not in files.index:
-     num1 = [[r.random() for j in range(3)] for i in range(3)]
-     num2 = [[2+r.random()for j in range(3)] for i in range(2)]
+     num1 = np.array([[r.random() for j in range(3)] for i in range(3)]).transpose().tolist()
+     num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose().tolist()
      files.loc[suffix] = [num1,num2]
 files.to_csv(csv_file)
+
       
-#st.dataframe(pd.read_csv(n1))
+st.dataframe(pd.read_csv(files))
   
-     
-st.dataframe(files)
+    
 
 
   
