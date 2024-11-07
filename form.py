@@ -27,9 +27,10 @@ if suffix not in files.index:
      num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose()
      files.loc[suffix] = [num1,num2]
      files.to_csv(csv_file, sep = ',',index=True, mode = 'w')
-
-      
 st.dataframe(files)
+if st.button('rerun!)
+    st.rerun()
+
   
     
 
