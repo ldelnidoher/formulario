@@ -5,7 +5,7 @@ import numpy as np
 import streamlit as st
 import random as r
 
-st.date_input('fecha', help = "click on the week that you're interested in", value = None)
+#st.date_input('fecha', help = "click on the week that you're interested in", value = None)
 
 t = datetime.datetime.today()
 day_of_week = t.isoweekday()
