@@ -29,7 +29,7 @@ if suffix not in files.index:
      files.to_csv(csv_file, sep = ',',index=True, mode = 'w')
 
       
-st.dataframe(pd.read_csv(files))
+st.dataframe(files)
   
     
 
