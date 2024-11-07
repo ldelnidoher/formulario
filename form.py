@@ -17,12 +17,13 @@ if os.path.exists(csv_file):
 else:
     files = pd.DataFrame(
         {'a':np.array([],dtype="object"),
-         'b':np.array([],dtype="object"),
-        }
+         'b':np.array([],dtype="object")
+        },
+     index = []
     )
 if suffix not in files.index:
-     num1 = np.array([[r.random() for j in range(3)] for i in range(3)]).transpose().tolist()
-     num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose().tolist()
+     num1 = np.array([[r.random() for j in range(3)] for i in range(3)]).transpose()
+     num2 = np.array([[2+r.random()for j in range(3)] for i in range(2)]).transpose()
      files.loc[suffix] = [num1,num2]
 files.to_csv(csv_file)
 
