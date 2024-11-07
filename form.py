@@ -35,16 +35,21 @@ if not str(suffix)+'1.txt' in files['a'].values:
   b = np.savetxt(n2,np.array(num2),fmt = '% 1.5f', delimiter = ' \t')
   files.loc[len(files.index)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
 
-  with open(os.path.join("tempDir",csv_file),"wb") as f:
-     f.write(files.getbuffer())
+git add n1
+git commit -m 'upl n1'
+git branch -M main
+git remote add origin https://github.com/ldelnidoher/formulario.git
+git push -u origin main
+  #with open(os.path.join("tempDir",csv_file),"wb") as f:
+     #f.write(files.getbuffer())
        
-  with open(os.path.join("tempDir",n1),"wb") as f:
-     f.write(n1.getbuffer())
+  #with open(os.path.join("tempDir",n1),"wb") as f:
+     #f.write(n1.getbuffer())
 
-  with open(os.path.join("tempDir",n2),"wb") as f:
-     f.write(n2.getbuffer())
+  #with open(os.path.join("tempDir",n2),"wb") as f:
+     #f.write(n2.getbuffer())
       
-st.dataframe(pd.read_csv(n1))
+#st.dataframe(pd.read_csv(n1))
   
      
 st.dataframe(files)
