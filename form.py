@@ -5,11 +5,6 @@ import numpy as np
 import streamlit as st
 import random as r
 
-def save_uploadedfile(uploadedfile):
-     with open(os.path.join("tempDir",uploadedfile.name),"wb") as f:
-         f.write(uploadedfile.getbuffer())
-     return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
-
 st.date_input('fecha', help = "click on the week that you're interested in", value = None)
 
 t = datetime.datetime.today()
@@ -25,29 +20,11 @@ else:
          'b':np.array([]),
         }
     )
-
-num1 = [r.random() for i in range(10)]
-num2 = [2+r.random() for i in range(10)]
-if not str(suffix)+'1.txt' in files['a'].values:
-  n1 = f'{suffix}1.txt'
-  n2 = f'{suffix}2.txt'
-  a = np.savetxt(n1,np.array(num1),fmt = '% 1.5f', delimiter = ' \t')
-  b = np.savetxt(n2,np.array(num2),fmt = '% 1.5f', delimiter = ' \t')
-  files.loc[len(files.index)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
-
-git add n1
-git commit -m 'upl n1'
-git branch -M main
-git remote add origin https://github.com/ldelnidoher/formulario.git
-git push -u origin main
-  #with open(os.path.join("tempDir",csv_file),"wb") as f:
-     #f.write(files.getbuffer())
-       
-  #with open(os.path.join("tempDir",n1),"wb") as f:
-     #f.write(n1.getbuffer())
-
-  #with open(os.path.join("tempDir",n2),"wb") as f:
-     #f.write(n2.getbuffer())
+if suffix not in files.index:
+     num1 = [[r.random() for j in range(3)] for i in range(3)]
+     num2 = [[2+r.random()for j in range(3)] for i in range(2)]
+     files.loc[suffix] = [num1,num2]
+files.to_csv(csv_file)
       
 #st.dataframe(pd.read_csv(n1))
   
