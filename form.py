@@ -36,10 +36,10 @@ if not str(suffix)+'1.txt' in files['a'].values:
   files.loc[len(files.index)] = [str(suffix)+'1.txt',str(suffix)+'2.txt']
 
   with open(os.path.join("tempDir",n1),"wb") as f:
-     f.write(n.getbuffer())
+     f.write(n1.getbuffer())
 
   with open(os.path.join("tempDir",n2),"wb") as f:
-     f.write(n.getbuffer())
+     f.write(n2.getbuffer())
       
 st.dataframe(pd.read_csv(n1))
   
