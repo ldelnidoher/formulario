@@ -12,6 +12,7 @@ day_of_week = t.isoweekday()
 #suffix = t.strftime('%Y%m%d')
 suffix = t.strftime('%H%M%S')
 csv_file = "files.csv"
+st.write(suffix)
 if os.path.exists(csv_file):
     files = pd.read_csv(csv_file, delimiter = ',',index_col = 0 ) 
 else:
