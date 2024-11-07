@@ -28,8 +28,7 @@ if suffix not in files.index:
      files.loc[suffix] = [num1,num2]
      files.to_csv(csv_file, sep = ',',index=True, mode = 'w')
 st.dataframe(files)
-if st.button('rerun!'):
-    st.rerun()
+
 
   
     
